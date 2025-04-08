@@ -7,7 +7,7 @@ export function Card({ product }: { product: Product }) {
   return (
     <li className="bg-white w-full max-w-xs mb-11 p-4 border rounded-md shadow-md">
       <div className="bg-gray-100 w-full max-w-xs p-4 mb-6 rounded-md shadow-md">
-        <Link href={`/products/id/${product.id}`}>
+        <Link href={`/products/${product.id}`}>
           <Image
             className="w-full h-48 object-cover mb-2"
             src={product.thumbnail}
