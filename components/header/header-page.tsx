@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useRouter } from 'next/navigation';
 import { Input } from "../ui/input";
 import { Search, ShoppingBag, User, Heart, ShoppingCart } from "lucide-react";
-//import SearchResults from "./search-results";
+import SearchResults from "./search-results";
 
 
 
