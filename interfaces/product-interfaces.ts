@@ -18,6 +18,7 @@ export interface Product {
 }
 
 export interface Products {
+    id: number;
     products: Product[];
     total: number;
     skip: number;
