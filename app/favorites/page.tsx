@@ -4,9 +4,21 @@ import { useFavorite } from "@/components/context/FavoriteContext";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart } from "lucide-react";
+import { useAuth } from "@/components/context/AuthContext";
 
 export default function FavoritesPage() {
-    const { toggleFavorite, isFavorite , favorites } = useFavorite();
+    const { toggleFavorite, isFavorite, favorites } = useFavorite();
+    const { isAuthenticated } = useAuth();
+
+    if (!isAuthenticated) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <p className="text-lg font-semibold text-gray-600">
+                    Please login to view your Favorites ❤️
+                </p>
+            </div>
+        );
+    }
 
     return (
         <div className="p-30">

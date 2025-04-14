@@ -1,7 +1,8 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import type { Product } from "@/interfaces/product-interfaces";
+import { useAuth } from "./AuthContext";
 
 type FavoriteContextType = {
   favorites: Product[];
@@ -13,6 +14,22 @@ const FavoriteContext = createContext<FavoriteContextType | null>(null);
 
 export const FavoriteProvider = ({ children }: { children: React.ReactNode }) => {
   const [favorites, setFavorites] = useState<Product[]>([]);
+
+    const { isAuthenticated } = useAuth(); // 👈 use the context here
+
+useEffect(() => {
+    const storedFavorites = localStorage.getItem("favorites");
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites));
+    }
+  }, [isAuthenticated]);
+  
+  useEffect(() => {
+    if (isAuthenticated) {
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+  }, [favorites, isAuthenticated]);
+  
 
   const toggleFavorite = (product: Product) => {
     setFavorites((prev) =>

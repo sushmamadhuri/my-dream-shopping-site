@@ -10,6 +10,7 @@ import { Input } from "../ui/input";
 import { Search, ShoppingBag, User, Heart, ShoppingCart } from "lucide-react";
 import SearchResults from "./search-results";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
 
 
 
@@ -20,6 +21,8 @@ export default function Header() {
     const [searchQuery, setSearchQuery] = useState<string>('');
     const { cartItems } = useCart();
     const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+    const { isAuthenticated, logout, userEmail } = useAuth();
     // funktion som trigas när användaren trycker på en tangent
     const handleSearch = () => {
         if (searchQuery.length <= 2) {
@@ -94,7 +97,24 @@ export default function Header() {
                             />
                         </div>
                         <div className="flex space-x-8 ">
-                            <User className="w-6 h-6 cursor-pointer" />
+                            <div className="flex items-center space-x-4">
+                                {isAuthenticated ? (
+                                    <>
+                                        <span className="text-sm text-black-950 font-semibold">{userEmail}</span>
+                                        <button
+                                            onClick={logout}
+                                            className="text-red-600 font-semibold hover:underline"
+                                        >
+                                            Logout
+                                        </button>
+                                    </>
+                                ) : (
+                                    <Link href="/login" className="text-blck-600 hover:underline">
+
+                                        <User className="w-6 h-6 cursor-pointer" />
+                                    </Link>
+                                )}
+                            </div>
                             <Link href="/favorites">
                                 <Heart className="w-6 h-6 cursor-pointer text-red-500" />
                             </Link>
