@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import { Input } from "../ui/input";
 import { Search, ShoppingBag, User, Heart, ShoppingCart } from "lucide-react";
 import SearchResults from "./search-results";
+import { useCart } from "../context/CartContext";
 
 
 
@@ -17,6 +18,8 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState<string>('');
+    const { cartItems } = useCart();
+    const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
     // funktion som trigas när användaren trycker på en tangent
     const handleSearch = () => {
         if (searchQuery.length <= 2) {
@@ -34,16 +37,16 @@ export default function Header() {
 
     return (
         <div>
-            <div className="flex items-center justify-end pr-10 bg-rose-700 h-8 text-white font-medium ">
+            <div className="flex items-center justify-end pr-10 bg-rose-700 h-8 fixed top-0 left-0 right-0 z-50  text-white font-medium ">
                 <p>@All rights Reserved</p>
             </div>
 
-            <header className="bg-white shadow-md px-4 py-1 flex items-center ">
+            <header className="bg-white shadow-md px-4 py-1 flex items-center fixed top-8 left-0 right-0 z-50  ">
 
                 {/* Menu Icon */}
 
                 {/* Top Bar */}
-                <div className="flex items-center justify-between w-full">
+                <div className="flex items-center justify-between w-full overflow-y-scroll">
 
                     {/* Hamburger Icon */}
                     <div onClick={() => setIsOpen(true)} className="md:hidden cursor-pointer">
@@ -93,10 +96,15 @@ export default function Header() {
                         <div className="flex space-x-8 ">
                             <User className="w-6 h-6 cursor-pointer" />
                             <Heart className="w-6 h-6 cursor-pointer" />
-                            <Link href="/cart">
+                            <Link href="/cart" className="relative">
                                 <ShoppingCart className="w-6 h-6 cursor-pointer" />
+                                {totalItems > 0 && (
+                                    <span className="absolute -top-2 -right-3 bg-red-500 text-white rounded-full text-xs px-2">
+                                        {totalItems}
+                                    </span>
+                                )}
                             </Link>
-                         </div>
+                        </div>
 
 
                         {/*     <div>

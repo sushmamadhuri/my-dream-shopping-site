@@ -6,11 +6,11 @@ import Image from "next/image";
 import { Trash2, Plus, Minus } from 'lucide-react';
 
 export default function cart() {
-  const { cartItems } = useCart();
+  const { cartItems, decreaseQuantity,increaseQuantity,removeFromCart, getQuantity } = useCart();
 
   return (
    
-    <div className="bg-gray-100 w-full  p-4 mb-6 rounded-md shadow-md">
+    <div className="bg-gray-100 w-full  p-15 mb-6 rounded-md shadow-md">
       <h2 className="text-xl font-bold mb-4">🛒 Cart</h2>
       
       {cartItems.map((item, i) => ( 
@@ -46,15 +46,18 @@ export default function cart() {
             {/* Quantity + Delete */}
             <div className="flex items-center space-x-4">
               <div className="flex items-center border px-2 py-1 rounded">
-                <button className="text-gray-600 hover:text-black">
+                <button className="text-gray-600 hover:text-black"
+                onClick={() => decreaseQuantity(item.id)}>
                   <Minus size={18} />
                 </button>
-                <span className="px-3"></span>
-                <button className="text-gray-600 hover:text-black">
+                <span className="px-3">{getQuantity(item.id)}</span>
+                <button className="text-gray-600 hover:text-black"
+                onClick={() => increaseQuantity(item.id)}>
                   <Plus size={18} />
                 </button>
               </div>
-              <button className="text-red-500 hover:text-red-700">
+              <button className="text-red-500 hover:text-red-700"
+              onClick={() => removeFromCart(item.id)}>
                 <Trash2 size={20} />
               </button>
             </div>
