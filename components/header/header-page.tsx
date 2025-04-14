@@ -93,8 +93,10 @@ export default function Header() {
                         <div className="flex space-x-8 ">
                             <User className="w-6 h-6 cursor-pointer" />
                             <Heart className="w-6 h-6 cursor-pointer" />
-                            <ShoppingCart className="w-6 h-6  cursor-pointer" />
-                        </div>
+                            <Link href="/cart">
+                                <ShoppingCart className="w-6 h-6 cursor-pointer" />
+                            </Link>
+                         </div>
 
 
                         {/*     <div>
