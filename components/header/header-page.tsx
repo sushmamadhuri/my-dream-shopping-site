@@ -95,7 +95,9 @@ export default function Header() {
                         </div>
                         <div className="flex space-x-8 ">
                             <User className="w-6 h-6 cursor-pointer" />
-                            <Heart className="w-6 h-6 cursor-pointer" />
+                            <Link href="/favorites">
+                                <Heart className="w-6 h-6 cursor-pointer text-red-500" />
+                            </Link>
                             <Link href="/cart" className="relative">
                                 <ShoppingCart className="w-6 h-6 cursor-pointer" />
                                 {totalItems > 0 && (

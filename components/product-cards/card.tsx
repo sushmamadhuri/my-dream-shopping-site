@@ -3,13 +3,23 @@ import Link from "next/link";
 import Image from "next/image";
 import { useCart } from "../context/CartContext";
 import { Trash2, Plus, Minus } from 'lucide-react';
+import { useFavorite } from "../context/FavoriteContext";
+import { Heart } from "lucide-react";
 
 export function Card({ product }: { product: Product }) {
+  const { toggleFavorite, isFavorite } = useFavorite();
  
   const { cartItems,addToCart, decreaseQuantity,increaseQuantity,removeFromCart, getQuantity } = useCart();
   return (
     <li className="flex flex-col justify-between h-full bg-white w-full max-w-xs mb-11 p-4 border rounded-md shadow-md">
       <div className="bg-gray-100 w-full max-w-xs p-4 mb-6 rounded-md shadow-md">
+         {/* Heart icon */}
+      <button
+        onClick={() => toggleFavorite(product)}
+        className="absolute text-red-500 hover:scale-110 transition-transform"
+      >
+        <Heart fill={isFavorite(product.id) ? "red" : "none"} />
+      </button>
         <Link href={`/products/${product.id}`}>
           <Image
             className="w-full h-48 object-cover mb-2"
