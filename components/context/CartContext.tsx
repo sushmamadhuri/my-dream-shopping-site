@@ -1,7 +1,8 @@
 "use client";
-import React, { createContext, useContext, useState } from "react";
-import type { Products } from "@/interfaces/product-interfaces"; 
+import React, { createContext, useContext, useState, useEffect } from "react";
+import type { Products } from "@/interfaces/product-interfaces";
 import type { Product } from "@/interfaces/product-interfaces";
+import { useAuth } from "@/components/context/AuthContext";
 
 
 type CartItem = Product & { quantity: number };
@@ -23,6 +24,24 @@ const CartContext = createContext<CartContextType | null>(null);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  
+    const { isAuthenticated } = useAuth(); // 👈 use the context here
+
+  // 👇 Load cart from localStorage when user logs in
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cartItems");
+    if (storedCart) {
+      setCartItems(JSON.parse(storedCart));
+    }
+  }, [isAuthenticated]); // <- only run on login
+
+  // 👇 Save to localStorage on every cart update
+  useEffect(() => {
+    if (isAuthenticated) {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+  }, [cartItems, isAuthenticated]);
+
 
   const addToCart = (product: Product) => {
     setCartItems((prev) => {
