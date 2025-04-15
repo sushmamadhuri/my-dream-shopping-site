@@ -23,8 +23,7 @@ export default function CategoryPage() {
   return (
     <div className="p-10">
       <h1 className="text-2xl font-semibold capitalize mb-4 m-20">{category}</h1>
-          <CardList products={product} totalProducts={total} />
-         
+          <CardList products={product} totalProducts={total} />       
       
     </div>
   );
