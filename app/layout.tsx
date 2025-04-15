@@ -6,6 +6,7 @@ import { CartProvider } from "@/components/context/CartContext";
 import { FavoriteProvider } from "@/components/context/FavoriteContext";
 import { AuthProvider } from "@/components/context/AuthContext";
 import Footer from "@/components/footer/footer";
+import Sorting from "@/components/sorting/page";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +37,7 @@ export default function RootLayout({
           <FavoriteProvider>
             <CartProvider>
               <Header />
-              <main className="flex-grow">
+              <main >
                 {children}
               </main>
               <Footer />

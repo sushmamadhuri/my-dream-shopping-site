@@ -6,7 +6,7 @@ import FooterSocialLinks from "./footer-social-links/footer-social-links";
 
 export default function Footer() {
     return (
-        <footer className=" bg-gradient-to-r from-emerald-500 to-emerald-800 text-white py-8 border-t-2">
+        <footer className=" bg-gradient-to-r from-green-600 to-teal-500 text-white py-8 border-t-2">
             <div className="container mx-auto px-4">
                 {/* Logotyp + Företagsnamn */}
 
