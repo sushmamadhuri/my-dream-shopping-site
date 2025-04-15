@@ -39,7 +39,7 @@ export function Card({ product }: { product: Product }) {
       </div>
       <div>
         <div >
-          <div  className="flex items-center justify-between mt-auto  pt-1 w-full bg-gradient-to-r from-emerald-500 to-emerald-700 text-white font-semibold py-1 px-4 rounded-lg  transition" >
+          <div  className="flex items-center justify-between mt-auto  pt-1 w-full bg-gradient-to-r from-green-600 to-teal-500 text-white font-semibold py-1 px-4 rounded-lg  transition" >
              <button className="text-white-950  cursor-pointer"
             onClick={() => decreaseQuantity(product.id)}>
             <Minus size={18} />

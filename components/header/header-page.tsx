@@ -40,7 +40,7 @@ export default function Header() {
 
     return (
         <div>
-            <div className="flex items-center justify-end pr-10 bg-gradient-to-r from-emerald-500 to-emerald-700 h-8 fixed top-0 left-0 right-0 z-50  text-white font-medium ">
+            <div className="flex items-center justify-end pr-10 bg-gradient-to-r from-green-600 to-teal-500 h-8 fixed top-0 left-0 right-0 z-50  text-white font-medium ">
                 <p>@All rights Reserved</p>
             </div>
 

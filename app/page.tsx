@@ -1,62 +1,8 @@
 import Image from "next/image";
 import { fetchProducts } from "@/data-access/fetch-products"
-import { CardList } from "@/components/product-cards/cards";/* 
-import CategoryBar from "@/app/components/category-bar/category-bar"; */
+import { CardList } from "@/components/product-cards/cards";
+import { ClientProductSection } from "@/components/sorting/client-product-section";
 
-/* export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-     
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
-} */
 export default async function Home({ searchParams }: { searchParams: Promise<{ page: string }> }) {
   const page = (await searchParams).page;
   const currentPage = Number(page) || 1;
@@ -64,11 +10,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen mt-0 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center">
-        {/* <CategoryBar /> */}
+      <main className="flex flex-col gap-[16px] row-start-2 items-center">
         <h1 className="text-center text-black-300 ">Our products</h1>
-        <span>Totalt: {total} products</span>
-        <CardList products={products} totalProducts={total} />
+        <span >Totalt: {total} products</span>
+        <ClientProductSection products={products} total={total} />
       </main>
     </div>
   );

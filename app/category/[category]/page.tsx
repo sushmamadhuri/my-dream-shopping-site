@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { CardList } from "@/components/product-cards/cards";
 import { Product } from "@/interfaces/product-interfaces";
+import { ClientProductSection } from "@/components/sorting/client-product-section";
 
 export default function CategoryPage() {
     const params = useParams();
@@ -23,7 +24,7 @@ export default function CategoryPage() {
   return (
     <div className="p-10">
       <h1 className="text-2xl font-semibold capitalize mb-4 m-20">{category}</h1>
-          <CardList products={product} totalProducts={total} />       
+              <ClientProductSection products={product} total={total} />
       
     </div>
   );
