@@ -62,13 +62,14 @@ export default function Header() {
 
 
                     {/* Desktop Menu */}
-                    <div className="hidden md:flex flex-1 ml-12 font-medium">
+                    <div className="hidden md:flex flex-1 ml-3 font-medium">
                         <ul className="flex space-x-6">
-                            <li><Link href="/" className="hover:text-rose-700">Women</Link></li>
-                            <li><Link href="/about" className="hover:text-rose-700">Men</Link></li>
-                            <li><Link href="/contact" className="hover:text-rose-700">Kids</Link></li>
-                            <li><Link href="/about" className="hover:text-rose-700">Home</Link></li>
-                            <li><Link href="/contact" className="hover:text-rose-700">Others</Link></li>
+                            <li><Link href="/" className="hover:text-rose-700">Home</Link></li>
+                            <li><Link href="/category/womens-dresses" className="hover:text-rose-700">Women</Link></li>
+                            <li><Link href="/category/mens-shirts" className="hover:text-rose-700">Men</Link></li>
+                            <li><Link href="/category/beauty" className="hover:text-rose-700">Beauty </Link></li>
+                            <li><Link href="/category/fragrances" className="hover:text-rose-700">Fragrances</Link></li>
+                            <li><Link href="/category/home-decoration" className="hover:text-rose-700">Home-decoration</Link></li>
 
                         </ul>
 
@@ -83,7 +84,7 @@ export default function Header() {
 
                             {/* Input Field */}
                             <input
-                                className="pl-3 pr-10 pr-4 py-2 border border-gray-300 w-32
+                                className="pl-3 pr-10 pr-4 py-2 border border-gray-300 w-3xs
                                  rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-300
                                  text-gray-900 border border-gray-300 rounded-lg
                                  bg-gray-50"
@@ -100,13 +101,20 @@ export default function Header() {
                             <div className="flex items-center space-x-4">
                                 {isAuthenticated ? (
                                     <>
-                                        <span className="text-sm text-black-950 font-semibold">{userEmail}</span>
-                                        <button
-                                            onClick={logout}
-                                            className="text-red-600 font-semibold hover:underline"
-                                        >
-                                            Logout
-                                        </button>
+                                        
+                                            <div className="relative group">                                               
+                                                <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2 z-10 whitespace-nowrap">
+                                                    {userEmail}
+                                                </div>
+                                            </div>
+                                             <button
+                                                onClick={logout}
+                                                className="text-red-600 font-semibold hover:underline"
+                                            >
+                                                Logout
+                                            </button>
+                                        
+
                                     </>
                                 ) : (
                                     <Link href="/login" className="text-blck-600 hover:underline">
