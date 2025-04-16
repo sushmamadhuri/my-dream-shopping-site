@@ -6,7 +6,7 @@ import FooterSocialLinks from "./footer-social-links/footer-social-links";
 
 export default function Footer() {
     return (
-        <footer className=" bg-gradient-to-r from-green-600 to-teal-500 text-white py-8 border-t-2">
+        <footer className=" bg-gradient-to-r from-green-600 to-teal-500 text-white font-semibold text-lg py-8 border-t-2">
             <div className="container mx-auto px-4">
                 {/* Logotyp + Företagsnamn */}
 
@@ -27,7 +27,7 @@ export default function Footer() {
                     <FooterSocialLinks />
 
                     {/* Kontaktinformation */}
-                    <div className="flex flex-col items-center md:items-start">
+                    <div className="flex flex-col items-center md:items-start ">
                         <h3 className="text-lg font-semibold mb-2">CONTACT</h3>
                         <ul className="space-y-2">
                             <li className="hover:underline hover:text-yellow-400">📞 +46 721 234 76</li>

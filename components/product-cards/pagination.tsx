@@ -24,7 +24,7 @@ export default function Pagination({totalProducts}: { totalProducts: number }) {
               <Image src="/icons/chevron-left.png" alt="Previous Page" width={24} height={24} />
 
         </button>
-        <span className="px-4 py-2 border rounded bg-gray-200">Sida {currentPage} av {totalPages}</span>
+        <span className="px-4 py-2 border rounded bg-gray-200">Page {currentPage} of {totalPages}</span>
         <button
           className={`px-4 py-2 border rounded ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""}`}
           onClick={() => handlePageChange(currentPage + 1)}
