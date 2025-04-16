@@ -1,3 +1,4 @@
+"use client";
 import { Product } from "@/interfaces/product-interfaces";
 import Link from "next/link";
 import Image from "next/image";
@@ -5,11 +6,35 @@ import { useCart } from "../context/CartContext";
 import { Trash2, Plus, Minus } from 'lucide-react';
 import { useFavorite } from "../context/FavoriteContext";
 import { Heart, Star } from "lucide-react";
+import { useState } from "react";
 
 export function Card({ product }: { product: Product }) {
   const { toggleFavorite, isFavorite } = useFavorite();
 
   const { cartItems, addToCart, decreaseQuantity, increaseQuantity, removeFromCart, getQuantity } = useCart();
+  const [showAddedTooltip, setShowAddedTooltip] = useState(false);
+
+  const showTooltip = () => {
+    setShowAddedTooltip(true);
+    setTimeout(() => setShowAddedTooltip(false), 800); 
+  };
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const cartIcon = document.getElementById("cart-icon");
+
+    if (cartIcon) {
+      const cartRect = cartIcon.getBoundingClientRect();
+
+      const deltaX = cartRect.left - rect.left;
+      const deltaY = cartRect.top - rect.top;
+      
+    }
+
+    addToCart(product);
+    showTooltip(); // for tooltip
+  };
+
   return (
     <li className="flex flex-col justify-between h-full bg-white w-full max-w-xs mb-11 p-4 border rounded-md shadow-md">
       <div className="bg-gray-100 w-full max-w-xs p-4 mb-6 rounded-md shadow-md">
@@ -49,27 +74,40 @@ export function Card({ product }: { product: Product }) {
         </div>
 
       </div>
-      
-      
-          <div className="flex items-center justify-between mt-0  pt-1 w-full bg-gradient-to-r from-green-600 to-teal-500 text-white font-semibold py-1 px-4 rounded-lg  transition" >
-            <button className="text-white-950  cursor-pointer"
-              onClick={() => decreaseQuantity(product.id)}>
-              <Minus size={18} />
-            </button>
-
-            <button className="cursor-pointer "
-              onClick={() => addToCart(product)}
-            >
-              Add to Cart
-            </button> <button className="text-white-950 cursor-pointer"
-              onClick={() => increaseQuantity(product.id)}>
-              <Plus size={18} />
-            </button>
-          </div>
-       
 
 
-      
+      <div className="flex items-center justify-between mt-0  pt-1 w-full bg-gradient-to-r from-green-600 to-teal-500 text-white font-semibold py-1 px-4 rounded-lg  transition" >
+        <button className="transition-transform transform hover:scale-110 active:scale-90 duration-200 ease-in-out cursor-pointer"
+          onClick={() => decreaseQuantity(product.id)}>
+          <Minus  strokeWidth={3} />
+        </button>
+
+        {/*  <button className="cursor-pointer "
+          onClick={() => addToCart(product)}
+        >
+          Add to Cart
+        </button> */}
+        <div className="relative">
+          <button
+            className="cursor-pointer transition active:scale-95 duration-150"
+            onClick={handleAddToCart}
+          >
+            Add to Cart
+          </button>
+
+          {showAddedTooltip && (
+            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white w-full text-black 
+            text-xs px-2 py-1 rounded shadow transition-opacity duration-1">
+              Added 
+            </div>
+          )}
+        </div>
+        <button className="transition-transform transform hover:scale-110 active:scale-90 duration-200 ease-in-out cursor-pointer"
+          onClick={() => increaseQuantity(product.id)}>
+          <Plus strokeWidth={3} />
+        </button>
+      </div>
     </li>
-  );
+  ); 
+
 }
