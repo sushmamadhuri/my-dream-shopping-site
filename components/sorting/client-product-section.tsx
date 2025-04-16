@@ -33,8 +33,8 @@ export function ClientProductSection({
 
             <div className="w-full flex flex-col gap-4">
                 {/* Flex wrapper for total + sorting */}
-                <div className="w-full flex items-center justify-between px-2 sm:px-4">
-                    <span className="text-gray-700 text-sm sm:text-base">
+                <div className="w-full flex items-center justify-between px-2 sm:px-4 ">
+                    <span className="text-gray-700 text-sm sm:text-base hidden md:block">
                         Total: {total} products
                     </span>
                     <Sorting sortBy={sortBy} setSortBy={setSortBy} />
