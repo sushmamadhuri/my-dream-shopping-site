@@ -21,26 +21,16 @@ export default function cart() {
 
   return (
 
-    <div className="bg-gray-100 w-full  p-15 mb-6 rounded-md shadow-md">
+    <div className="bg-gray-100 lg:w-5/6 p-5 mt-10 lg:p-15 lg:m-8 lg:ml-30 rounded-md shadow-md m-2 width-full">
       <h2 className="text-xl font-bold mb-4">🛒 Cart</h2>
 
       {cartItems.map((item, i) => (
-        /*  <div key={i} className="mb-2">
-           <p>{item.category}</p>
-            <Image
-                       className="w-full h-48 object-cover mb-2"
-                       src={item.thumbnail}
-                       width={200}
-                       height={200}
-                       alt={`Bild ${item.title}`}
-                     />
-         </div> */
         <div
           key={item.id}
-          className="flex items-center justify-between border-b py-4"
+          className="flex items-center w-full  justify-between border-b py-4 m-0 "
         >
           {/* Product Info */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center lg:space-x-4">
             <Image
               src={item.thumbnail}
               alt={item.title}

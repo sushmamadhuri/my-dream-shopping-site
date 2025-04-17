@@ -7,9 +7,9 @@ type Props = {
 
 export default function Sorting({ sortBy, setSortBy }: Props) {
   return (
-    <div className="mb-4">
+    <div className="mb-4 ">
       <select
-        className="p-2 border rounded"
+        className="p-2 border rounded text-sm md:text-base "
         value={sortBy}
         onChange={(e) => setSortBy(e.target.value)}
       >

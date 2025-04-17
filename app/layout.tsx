@@ -29,22 +29,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <AuthProvider>
-          <FavoriteProvider>
-            <CartProvider>
-              <Header />
-              <main >
-                {children}
-              </main>
-              <Footer />
-            </CartProvider>
-          </FavoriteProvider>
-        </AuthProvider>
-      </body>
-    </html>
+    <html lang="en" className="h-full">
+    <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
+      <AuthProvider>
+        <FavoriteProvider>
+          <CartProvider>
+  
+            <Header />
+  
+            {/* Main content expands to fill available space */}
+            <main className="flex-grow">
+              {children}
+            </main>
+  
+            <Footer />
+  
+          </CartProvider>
+        </FavoriteProvider>
+      </AuthProvider>
+    </body>
+  </html>
+  
   );
 }

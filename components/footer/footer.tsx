@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="container mx-auto px-4">
                 {/* Logotyp + Företagsnamn */}
 
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-3 text-center md:text-left">
+                <div className="grid grid-cols-1 md:grid-cols-5 lg:gap-3 gap-5 text-center md:text-left">
                     {/* Navigationslänkar */}
                     <header >
                         <Image
@@ -18,7 +18,6 @@ export default function Footer() {
                             alt="MyDream E-commerce logo"
                             width={100}
                             height={100}
-                            className="mb-2"
                         />
                     </header>
                     <FooterNav />
@@ -28,7 +27,7 @@ export default function Footer() {
 
                     {/* Kontaktinformation */}
                     <div className="flex flex-col items-center md:items-start ">
-                        <h3 className="text-lg font-semibold mb-2">CONTACT</h3>
+                        <h3 className="text-lg font-semibold mb-2 underline">CONTACT</h3>
                         <ul className="space-y-2">
                             <li className="hover:underline hover:text-yellow-400">📞 +46 721 234 76</li>
                             <li className="hover:underline hover:text-yellow-400">✉️ mydream@info.se</li>
@@ -36,9 +35,9 @@ export default function Footer() {
                     </div>
                     {/* Adressinformation */}
                     <div className="flex flex-col items-center md:items-start">
-                        <h3 className="text-lg font-semibold mb-2">ADDRESS</h3>
+                        <h3 className="text-lg font-semibold mb-2 underline">ADDRESS</h3>
                         <ul className="space-y-2">
-                            <li>📍 Projektgatan 22,<br></br>   123 45 Narnia</li>
+                            <li>📍 Sveaborsgatan 8,<br></br>   16422 Akalla</li>
                         </ul>
                     </div>
 
