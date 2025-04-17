@@ -68,11 +68,11 @@ export default function Header() {
                     <div className="flex items-center space-x-3 text-white  ">
                         {isAuthenticated ? (
                             <>
-                                <div className="relative group">
+                                <div className="relative group ">
                                     
                                     <button
                                         onClick={logout}
-                                        className="text-white text-lg font-medium hover:underline"
+                                        className="text-white text-lg cusror-pointer font-medium hover:underline "
                                     >
                                         Logout
                                     </button>
@@ -106,12 +106,12 @@ export default function Header() {
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex justify-center w-full mt-2 md:mt-0">
                     <ul className="flex space-x-6 text-white text-lg font-medium">
-                        <li><Link href="/" className="hover:text-rose-700">Home</Link></li>
-                        <li><Link href="/category/womens-dresses" className="hover:text-rose-700">Women</Link></li>
-                        <li><Link href="/category/mens-shirts" className="hover:text-rose-700">Men</Link></li>
-                        <li><Link href="/category/beauty" className="hover:text-rose-700">Beauty</Link></li>
-                        <li><Link href="/category/fragrances" className="hover:text-rose-700">Fragrances</Link></li>
-                        <li><Link href="/category/home-decoration" className="hover:text-rose-700">Home-decoration</Link></li>
+                        <li><Link href="/" className="hover:text-lime-300">Home</Link></li>
+                        <li><Link href="/category/womens-dresses" className="hover:text-lime-300">Women</Link></li>
+                        <li><Link href="/category/mens-shirts" className="hover:text-lime-300">Men</Link></li>
+                        <li><Link href="/category/beauty" className="hover:text-lime-300">Beauty</Link></li>
+                        <li><Link href="/category/fragrances" className="hover:text-lime-300">Fragrances</Link></li>
+                        <li><Link href="/category/home-decoration" className="hover:text-lime-300">Home-decoration</Link></li>
                     </ul>
                 </nav>
             </div>
@@ -125,7 +125,7 @@ export default function Header() {
                         <div className="flex items-center justify-between p-4 border-b border-gray-700">
                             <FaTimes className="cursor-pointer" size={24} onClick={() => setIsOpen(false)} />
                         </div>
-                        <ul className="flex flex-col p-4 space-y-4 text-lg text-white">
+                        <ul className="flex flex-col p-4 space-y-4 text-lg text-white font-semibold">
                             <li><Link href="/" onClick={() => setIsOpen(false)}>Home</Link></li>
                             <li><Link href="/category/womens-dresses" onClick={() => setIsOpen(false)}>Women</Link></li>
                             <li><Link href="/category/mens-shirts" onClick={() => setIsOpen(false)}>Men</Link></li>

@@ -17,9 +17,9 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm space-y-4"
+        className="bg-white p-6 rounded-lg shadow-lg lg:w-full max-w-sm space-y-4"
       >
-        <h2 className="text-xl font-bold text-center">Login</h2>
+        <h2 className="lg:text-xl text-l font-bold text-center">Login</h2>
 
         <div>
           <label className="block mb-1 text-sm font-medium">Email</label>
@@ -45,7 +45,7 @@ export default function LoginPage() {
 
         <button
           type="submit"
-          className="w-full bg-gradient-to-r from-green-600 to-teal-500  text-white py-2 rounded cursor-pointer"
+          className="w-full bg-gradient-to-r from-green-600 to-teal-500 font-semibold text-white py-2 rounded cursor-pointer"
         >
           Login
         </button>

@@ -2,6 +2,7 @@ import { Product } from "@/interfaces/product-interfaces"
 import { fetchProduct } from "@/data-access/fetch-product"
 import Image from "next/image"
 import type { Metadata } from 'next'
+import AddToCart from "@/components/product-cards/AddToCart"
 
 type Props = {
     params: Promise<{ id: number }>;
@@ -47,7 +48,7 @@ export default async function ProductPage({ params }: Props) {
     } = product;
 
     return (
-        <main className="grid items-center justify-items-center w-full px-[10vw] gap-4 md:grid-cols-[1fr_1fr]">
+        <main className="grid items-center justify-items-center width-full lg:w-3/5 px-[5vw] lg:px-[10vw] lg:m-32  mt-16  grid-cols-[1fr_1fr]">
             <div className="">
                 <Image
                     className=""
@@ -59,13 +60,16 @@ export default async function ProductPage({ params }: Props) {
                 />
             </div>
             <section className="border-b pb-4 border-gray-400">
-                <h2 className="text-2xl font-semibold">{ title }</h2>
-                <dl className="text-2xl  pb-4">
+                <h2 className="lg:text-2xl font-semibold">{title}</h2>
+                <dl className="lg:text-2xl  pb-4">
                     <dt className="sr-only">Price:</dt>
-                    <dd>${ price }</dd>
+                    <dd>${price}</dd>
                 </dl>
-                <p>{ description }</p>
-            </section> 
+                <p className="lg:text-l text-s pb-4">{description}</p>
+                <div className="lg:m-10 ">
+                    <AddToCart product={product} />
+                </div>
+            </section>
         </main>
     )
 }

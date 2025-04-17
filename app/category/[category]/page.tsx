@@ -26,7 +26,7 @@ export default function CategoryPage() {
      min-h-screen  sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[16px] row-start-2 items-center">
         <h1 className="text-center text-xl font-bold bg-gradient-to-r from-green-600 to-teal-500 
-        inline-block text-transparent bg-clip-text capitalize ">{category}</h1>
+        inline-block text-transparent bg-clip-text capitalize lg:mt-0 mt-15 ">{category}</h1>
         <ClientProductSection products={product} total={total} />
       </main>
     </div>

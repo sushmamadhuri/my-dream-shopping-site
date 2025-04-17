@@ -6,8 +6,8 @@ import Image from "next/image";
 export default function FooterSocialLinks() {
   return (
     <div className="flex flex-col items-center md:items-start">
-      <h3 className="text-lg font-semibold mb-4">FOLLOW US</h3>
-      <ul className="flex flex-col md:flex-col lg:flex-row gap-4 md:gap-6">
+      <h3 className="text-lg font-semibold mb-4 underline">FOLLOW US</h3>
+      <ul className="flex flex-row md:flex-col lg:flex-row gap-4 md:gap-6">
         <li>
           <Link href="https://www.facebook.com/?locale=sv_SE">
             <Image
